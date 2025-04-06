@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { config, createSchema } from '@keystone-next/keystone/schema'
 import 'dotenv/config';
+import { User } from './schemas/User';
 
 const databaseURL = process.env.DATABASE_URL;
 
@@ -21,7 +22,7 @@ export default config({
     url: databaseURL
   },
   lists: createSchema({
-
+    User
   }),
   ui: {
     isAccessAllowed: () => true,
