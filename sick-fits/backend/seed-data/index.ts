@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { products } from './data';
 
 export async function insertSeedData(ks: any) {
@@ -16,6 +18,7 @@ export async function insertSeedData(ks: any) {
     await mongoose.model('Product').create(product);
   }
   console.log(`✅ Seed Data Inserted: ${products.length} Products`);
+  // eslint-disable-next-line prettier/prettier
   console.log(`👋 Please start the process with \`yarn dev\` or \`npm run dev\``);
   process.exit();
 }
