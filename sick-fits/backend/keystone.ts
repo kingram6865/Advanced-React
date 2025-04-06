@@ -4,6 +4,7 @@ import 'dotenv/config';
 import { createAuth } from '@keystone-next/auth';
 import { withItemData, statelessSessions } from '@keystone-next/keystone/session'
 import { User } from './schemas/User';
+import { Product } from './schemas/Product';
 
 
 
@@ -22,7 +23,7 @@ const { withAuth } = createAuth({
     fields: ['name', 'email', 'password']
     // TODO: Add initial roles here
   }
-})
+});
 
 export default withAuth(
   config({
@@ -37,7 +38,7 @@ export default withAuth(
       url: databaseURL
     },
     lists: createSchema({
-      User
+      User, Product
     }),
     ui: {
       // Only Show UI if login can pass this test
