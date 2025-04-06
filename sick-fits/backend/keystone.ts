@@ -1,10 +1,11 @@
 /* eslint-disable prettier/prettier */
-import { config, createSchema } from '@keystone-next/keystone/schema'
+import { config, createSchema } from '@keystone-next/keystone/schema';
 import 'dotenv/config';
 import { createAuth } from '@keystone-next/auth';
-import { withItemData, statelessSessions } from '@keystone-next/keystone/session'
+import { withItemData, statelessSessions } from '@keystone-next/keystone/session';
 import { User } from './schemas/User';
 import { Product } from './schemas/Product';
+import { ProductImage } from './schemas/ProductImage';
 
 
 
@@ -27,7 +28,7 @@ const { withAuth } = createAuth({
 
 export default withAuth(
   config({
-    server: { 
+    server: {
       cors: {
         origin: [process.env.FRONTEND_URL],
         credentials: true
@@ -38,7 +39,7 @@ export default withAuth(
       url: databaseURL
     },
     lists: createSchema({
-      User, Product
+      User, Product, ProductImage
     }),
     ui: {
       // Only Show UI if login can pass this test
